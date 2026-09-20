@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safa Bloom Beauty Studio | صفا بلوم ستوديو للجمال</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --light-pink: #FBF0EE;
+            --soft-pink: #F6D6D9;
+            --medium-pink: #E8A5AC;
+            --dark-pink: #BA6877;
+            --deep-rose: #863644;
+            --gold-light: #F7E5B5;
+            --gold: #D4AF37;
+            --gold-dark: #A98420;
+            --gold-gradient: linear-gradient(135deg, #F9E7BA 0%, #D4AF37 50%, #B8860B 100%);
+            --rose-gradient: linear-gradient(135deg, #BA6877 0%, #863644 100%);
+            --bg-creamy: #FFF9F8;
+            --text-dark: #3E2429;
+            --text-muted: #79555C;
+            --white: #FFFFFF;
+            --shadow-soft: 0 10px 30px rgba(186, 104, 119, 0.12);
+            --shadow-gold: 0 10px 25px rgba(212, 175, 55, 0.25);
+            --transition: all 0.35s ease;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Cairo', 'Montserrat', sans-serif;
+            background-color: var(--bg-creamy);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+        body.ltr { direction: ltr; font-family: 'Montserrat', sans-serif; }
+        body.ltr h1, body.ltr h2, body.ltr h3, body.ltr .brand-en { font-family: 'Playfair Display', serif; }
+
+        .top-bar {
+            background: var(--deep-rose);
+            color: var(--gold-light);
+            padding: 8px 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .top-bar-contact { display: flex; gap: 20px; align-items: center; }
+        .top-bar-contact a { color: var(--gold-light); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+
+        .navbar {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 12px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 20px rgba(186, 104, 119, 0.08);
+            border-bottom: 2px solid var(--soft-pink);
+        }
+        .brand-logo-wrap { display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit; }
+        .logo-box {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: radial-gradient(circle, #fff 50%, var(--light-pink) 100%);
+            border: 2px solid var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 1.6rem;
+        }
+        .brand-text { display: flex; flex-direction: column; }
+        .brand-name-ar { font-size: 1.3rem; font-weight: 800; color: var(--deep-rose); }
+        .brand-name-en { font-size: 0.85rem; font-weight: 600; color: var(--gold-dark); letter-spacing: 1.5px; text-transform: uppercase; }
+
+        .nav-links { display: flex; align-items: center; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.95rem; }
+        .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+        .lang-toggle {
+            background: var(--light-pink);
+            border: 1.5px solid var(--medium-pink);
+            color: var(--deep-rose);
+            padding: 6px 14px; border-radius: 25px; cursor: pointer;
+            font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;
+        }
+        .btn-book-nav {
+            background: var(--gold-gradient); color: var(--deep-rose);
+            border: none; padding: 8px 18px; border-radius: 25px;
+            font-weight: 700; text-decoration: none; font-size: 0.9rem;
+            box-shadow: var(--shadow-gold); display: flex; align-items: center; gap: 8px;
+        }
+
+        .hero {
+            position: relative; min-height: 80vh;
+            background: linear-gradient(135deg, rgba(251, 240, 238, 0.9) 0%, rgba(246, 214, 217, 0.6) 50%, rgba(255, 249, 248, 0.95) 100%);
+            display: flex; align-items: center; padding: 60px 5%;
+        }
+        .hero-container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; width: 100%;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--white); color: var(--dark-pink);
+            border: 1px solid var(--soft-pink); padding: 6px 16px;
+            border-radius: 30px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px;
+        }
+        .hero-title { font-size: 3rem; line-height: 1.25; color: var(--deep-rose); margin-bottom: 20px; font-weight: 800; }
+        .hero-title .gold-text {
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-desc { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.8; }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--rose-gradient); color: var(--white);
+            border: none; padding: 14px 30px; border-radius: 30px;
+            font-weight: 700; cursor: pointer; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow-soft);
+        }
+        .btn-outline-gold {
+            background: rgba(255, 255, 255, 0.8); color: var(--gold-dark);
+            border: 2px solid var(--gold); padding: 14px 28px; border-radius: 30px;
+            font-weight: 700; cursor: pointer; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+
+        .hero-logo-frame {
+            width: 320px; height: 320px; border-radius: 50%;
+            background: radial-gradient(circle, var(--white) 50%, var(--light-pink) 100%);
+            border: 5px solid var(--white);
+            box-shadow: 0 20px 50px rgba(186, 104, 119, 0.2), 0 0 0 3px var(--gold);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto;
+        }
+        .hero-logo-frame i { font-size: 5rem; color: var(--gold); margin-bottom: 10px; }
+        .hero-logo-frame span { font-weight: 800; color: var(--deep-rose); font-size: 1.3rem; }
+
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-tag { color: var(--gold-dark); font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; }
+        .section-title { font-size: 2.3rem; color: var(--deep-rose); font-weight: 800; margin-top: 10px; }
+
+        .services-section { padding: 80px 5%; background: var(--white); }
+        .services-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;
+        }
+        .service-card {
+            background: var(--bg-creamy); border-radius: 20px;
+            border: 1px solid var(--soft-pink); padding: 25px;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .service-card-top { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .service-icon {
+            width: 50px; height: 50px; border-radius: 14px;
+            background: var(--rose-gradient); color: var(--gold-light);
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+        }
+        .service-price {
+            background: var(--light-pink); color: var(--deep-rose);
+            padding: 5px 12px; border-radius: 15px; font-weight: 800; font-size: 0.9rem;
+        }
+        .service-title { font-size: 1.25rem; color: var(--deep-rose); margin-bottom: 10px; font-weight: 700; }
+        .service-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+        .btn-card-book {
+            background: transparent; color: var(--dark-pink);
+            border: 1.5px solid var(--dark-pink); padding: 10px; border-radius: 25px;
+            font-weight: 700; cursor: pointer; width: 100%;
+        }
+
+        .bridal-highlight-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #863644 0%, #5E202B 100%);
+            color: var(--white); border-radius: 25px; padding: 40px;
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px;
+            border: 2px solid var(--gold); margin-top: 20px;
+        }
+
+        .booking-section { padding: 80px 5%; background: linear-gradient(180deg, var(--bg-creamy) 0%, var(--light-pink) 100%); }
+        .booking-card {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: 25px; border: 2px solid var(--soft-pink);
+            display: grid; grid-template-columns: 1fr 1.3fr; overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+        .booking-info-panel { background: var(--rose-gradient); color: var(--white); padding: 40px; }
+        .info-panel-title { font-size: 1.6rem; color: var(--gold-light); margin-bottom: 20px; }
+        .info-items { display: flex; flex-direction: column; gap: 20px; }
+        .info-item { display: flex; align-items: center; gap: 15px; }
+        .info-item i { font-size: 1.3rem; color: var(--gold-light); }
+
+        .booking-form-panel { padding: 40px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .form-full { grid-column: 1 / -1; }
+        .form-control {
+            width: 100%; padding: 12px; border-radius: 12px;
+            border: 1.5px solid var(--soft-pink); background: var(--bg-creamy);
+            font-family: inherit; font-size: 0.95rem;
+        }
+        .btn-submit-booking {
+            width: 100%; background: var(--gold-gradient); color: #401018;
+            border: none; padding: 14px; border-radius: 14px; font-weight: 800; font-size: 1rem; cursor: pointer;
+        }
+
+        .contact-quick-bar {
+            background: var(--deep-rose); color: var(--white); padding: 35px 5%;
+            border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold);
+        }
+        .contact-quick-container {
+            max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+        }
+        .quick-box { display: flex; align-items: center; gap: 15px; }
+        .quick-box a { color: #fff; text-decoration: none; font-size: 1.1rem; font-weight: 700; }
+
+        .footer { background: #2E151A; color: #E2C7CD; padding: 40px 5% 20px; text-align: center; }
+
+        .floating-actions { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 9999; }
+        body.ltr .floating-actions { right: auto; left: 25px; }
+        .float-btn {
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.5rem; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .float-whatsapp { background: #25D366; }
+        .float-call { background: var(--gold-gradient); color: #381219; }
+
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px);
+            display: flex; align-items: center; justify-content: center; z-index: 10000;
+            opacity: 0; pointer-events: none; transition: var(--transition); padding: 20px;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+        .modal-box {
+            background: #fff; max-width: 480px; width: 100%; border-radius: 20px;
+            padding: 30px; text-align: center; border: 2px solid var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .hero-container, .booking-card, .bridal-highlight-card { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-contact">
+            <a href="tel:+966541868305"><i class="fa-solid fa-phone"></i><span dir="ltr">+966 54 186 8305</span></a>
+            <a href="mailto:safabloombeauty@gmail.com"><i class="fa-solid fa-envelope"></i><span>safabloombeauty@gmail.com</span></a>
+        </div>
+        <div>
+            <span class="lang-text" data-key="topNotice">عالم الجمال والأناقة الفاخرة في انتظارك</span>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="#home" class="brand-logo-wrap">
+            <div class="logo-box"><i class="fa-solid fa-spa"></i></div>
+            <div class="brand-text">
+                <span class="brand-name-ar" id="navBrandName">صفا بلوم ستوديو</span>
+                <span class="brand-name-en">Safa Bloom Beauty Studio</span>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#home" class="lang-text" data-key="navHome">الرئيسية</a></li>
+            <li><a href="#services" class="lang-text" data-key="navServices">الخدمات</a></li>
+            <li><a href="#booking" class="lang-text" data-key="navBooking">حجز موعد</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <i class="fa-solid fa-globe"></i>
+                <span id="langBtnText">English</span>
+            </button>
+            <a href="#booking" class="btn-book-nav">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span class="lang-text" data-key="btnBookNav">احجزي موعدك</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div>
+                <div class="hero-badge">
+                    <i class="fa-solid fa-crown"></i>
+                    <span class="lang-text" data-key="heroBadge">ستوديو التجميل الأول والأرقى</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="lang-text" data-key="heroTitle1">تألقي بجمال ملكي مع </span>
+                    <span class="gold-text" id="heroBrandHighlight">صفا بلوم</span>
+                </h1>
+                <p class="hero-desc lang-text" data-key="heroDesc">
+                    نقدم لكِ أرقى خدمات العناية بالشعر، البشرة، والأظافر مع لمسات مكياج ساحرة وباقات عرائس فاخرة بأيدي نخبة من أمهر خبيرات التجميل.
+                </p>
+                <div class="hero-btns">
+                    <a href="#booking" class="btn-primary">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span class="lang-text" data-key="heroBtnBook">احجزي إطلالتك الآن</span>
+                    </a>
+                    <a href="https://wa.me/966541868305" target="_blank" class="btn-outline-gold">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span class="lang-text" data-key="heroBtnWa">تواصل عبر واتساب</span>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <div class="hero-logo-frame">
+                    <i class="fa-solid fa-spa"></i>
+                    <span>Safa Bloom</span>
+                    <small style="color:var(--text-muted); font-weight:bold;">BEAUTY STUDIO</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <span class="section-tag lang-text" data-key="srvTag">خدماتنا المتميزة</span>
+            <h2 class="section-title lang-text" data-key="srvTitle">عناية فاخرة تليق بأنوثتك</h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div>
+                    <div class="service-card-top">
+                        <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+                        <span class="service-price">120 SAR</span>
+                    </div>
+                    <h3 class="service-title">قص وتصفيف الشعر (Hair Cutting)</h3>
+                    <p class="service-desc">أحدث صيحات قصات الشعر مع سشوار علاجي وتهذيب احترافي يناسب ملامحك.</p>
+                </div>
+                <button class="btn-card-book" onclick="selectService('قص وتصفيف الشعر (Hair Cutting)')">اختيار للحجز</button>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <div class="service-card-top">
+                        <div class="service-icon"><i class="fa-solid fa-paint-roller"></i></div>
+                        <span class="service-price">350 SAR</span>
+                    </div>
+                    <h3 class="service-title">صبغ الشعر والبالياج (Hair Color)</h3>
+                    <p class="service-desc">صبغات آمنة خالية من الأمونيا وهايلايت وبالياج عصري يحمي شعرك.</p>
+                </div>
+                <button class="btn-card-book" onclick="selectService('صبغ الشعر والبالياج (Hair Color)')">اختيار للحجز</button>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <div class="service-card-top">
+                        <div class="service-icon"><i class="fa-solid fa-wand-magic"></i></div>
+                        <span class="service-price">400 SAR</span>
+                    </div>
+                    <h3 class="service-title">المكياج الاحترافي (Makeup)</h3>
+                    <p class="service-desc">مكياج سهرة ومناسبات فخم بأشهر الماركات العالمية وتثبيت 24 ساعة.</p>
+                </div>
+                <button class="btn-card-book" onclick="selectService('المكياج الاحترافي (Makeup)')">اختيار للحجز</button>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <div class="service-card-top">
+                        <div class="service-icon"><i class="fa-solid fa-spa"></i></div>
+                        <span class="service-price">280 SAR</span>
+                    </div>
+                    <h3 class="service-title">تنظيف البشرة وهيدرافيشل (Facial)</h3>
+                    <p class="service-desc">تنظيف عميق للبشرة وتقشير وماسكات الذهب لنضارة ونقاء فائق.</p>
+                </div>
+                <button class="btn-card-book" onclick="selectService('تنظيف البشرة وهيدرافيشل (Facial)')">اختيار للحجز</button>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <div class="service-card-top">
+                        <div class="service-icon"><i class="fa-solid fa-soap"></i></div>
+                        <span class="service-price">180 SAR</span>
+                    </div>
+                    <h3 class="service-title">بديكير ومنيكير سبا (Pedicure)</h3>
+                    <p class="service-desc">عناية مهدئة بالقدمين واليدين مع مساج استرخائي وتقشير حريري.</p>
+                </div>
+                <button class="btn-card-book" onclick="selectService('بديكير ومنيكير سبا (Pedicure)')">اختيار للحجز</button>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <div class="service-card-top">
+                        <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+                        <span class="service-price">220 SAR</span>
+                    </div>
+                    <h3 class="service-title">خدمات وتركيب الأظافر (Nail Services)</h3>
+                    <p class="service-desc">تركيب أظافر أكريليك وجل بولش بأحدث الرسومات العصرية الفرنسية.</p>
+                </div>
+                <button class="btn-card-book" onclick="selectService('خدمات وتركيب الأظافر (Nail Services)')">اختيار للحجز</button>
+            </div>
+
+            <div class="bridal-highlight-card">
+                <div>
+                    <h3 style="font-size:1.8rem; color:var(--gold-light); margin-bottom:10px;">باقات العرائس الفاخرة (Bridal Packages)</h3>
+                    <p style="margin-bottom:15px;">باقة ملكية شاملة لكل متطلبات العروس لتبدي كأميرة متوجة في ليلتك الخاصة.</p>
+                    <button class="btn-primary" style="background:var(--gold-gradient); color:#000;" onclick="selectService('باقة العروس الملكية (Bridal Package)')">
+                        احجزي باقة العروس (1,800 SAR)
+                    </button>
+                </div>
+                <div style="text-align:center; border:1px solid rgba(255,255,255,0.2); padding:20px; border-radius:15px;">
+                    <i class="fa-solid fa-heart" style="font-size:2.5rem; color:var(--gold);"></i>
+                    <h4 style="margin-top:10px; color:var(--gold-light);">استشارة مجانية للعروس</h4>
+                    <p style="font-size:0.85rem; margin-top:5px;">بروفة مكياج مسبقة ومناقشة تفاصيل إطلالتك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="booking">
+        <div class="section-header">
+            <span class="section-tag lang-text" data-key="bookTag">حجز إلكتروني فوري</span>
+            <h2 class="section-title lang-text" data-key="bookTitle">احجزي موعدكِ بكل سهولة</h2>
+        </div>
+
+        <div class="booking-card">
+            <div class="booking-info-panel">
+                <h3 class="info-panel-title lang-text" data-key="panelTitle">معلومات الاتصال</h3>
+                <div class="info-items">
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <strong style="display:block; font-size:0.8rem; color:var(--gold-light);">اتصال مباشر</strong>
+                            <span dir="ltr">+966 54 186 8305</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <strong style="display:block; font-size:0.8rem; color:var(--gold-light);">واتساب خدمة العملاء</strong>
+                            <span dir="ltr">+966 54 186 8305</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong style="display:block; font-size:0.8rem; color:var(--gold-light);">البريد الإلكتروني</strong>
+                            <span>safabloombeauty@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <strong style="display:block; font-size:0.8rem; color:var(--gold-light);">أوقات العمل</strong>
+                            <span id="hoursText">خدمة مفتوحة 24 ساعة (24/7)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-form-panel">
+                <form id="appointmentForm" onsubmit="handleBookingSubmit(event)">
+                    <div class="form-grid">
+                        <div class="form-group form-full">
+                            <label style="display:block; margin-bottom:5px; font-weight:700; color:var(--deep-rose);">اختاري الخدمة *</label>
+                            <select id="serviceSelect" class="form-control" required>
+                                <option value="" disabled selected>-- الرجاء تحديد الخدمة --</option>
+                                <option value="قص وتصفيف الشعر (Hair Cutting)">قص وتصفيف الشعر (Hair Cutting) - 120 SAR</option>
+                                <option value="صبغ الشعر والبالياج (Hair Color)">صبغ الشعر والبالياج (Hair Color) - 350 SAR</option>
+                                <option value="المكياج الاحترافي (Makeup)">المكياج الاحترافي (Makeup) - 400 SAR</option>
+                                <option value="تنظيف البشرة وهيدرافيشل (Facial)">تنظيف البشرة وهيدرافيشل (Facial) - 280 SAR</option>
+                                <option value="بديكير ومنيكير سبا (Pedicure)">بديكير ومنيكير سبا (Pedicure) - 180 SAR</option>
+                                <option value="خدمات وتركيب الأظافر (Nail Services)">خدمات وتركيب الأظافر (Nail Services) - 220 SAR</option>
+                                <option value="باقة العروس الملكية (Bridal Package)">باقة العروس الملكية (Bridal Package) - 1,800 SAR</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display:block; margin-bottom:5px; font-weight:700; color:var(--deep-rose);">الاسم الكريم *</label>
+                            <input type="text" id="custName" class="form-control" placeholder="اسمك الكريم" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display:block; margin-bottom:5px; font-weight:700; color:var(--deep-rose);">رقم الجوال *</label>
+                            <input type="tel" id="custPhone" class="form-control" placeholder="05XXXXXXXX" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display:block; margin-bottom:5px; font-weight:700; color:var(--deep-rose);">تاريخ الموعد *</label>
+                            <input type="date" id="custDate" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display:block; margin-bottom:5px; font-weight:700; color:var(--deep-rose);">الوقت المناسب (اختاري وقتك) *</label>
+                            <input type="time" id="custTime" class="form-control" required>
+                        </div>
+
+                        <div class="form-group form-full">
+                            <label style="display:block; margin-bottom:5px; font-weight:700; color:var(--deep-rose);">طريقة الدفع *</label>
+                            <select id="custPay" class="form-control">
+                                <option value="في الصالون (Pay at Salon)">الدفع في الصالون (كاش/شبكة)</option>
+                                <option value="مدى / بطاقة ائتمانية / Apple Pay">مدى / Apple Pay / بطاقة</option>
+                                <option value="STC Pay / تحويل إلكتروني">STC Pay / تحويل بنكي</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit-booking">
+                        تأكيد حجز الموعد الآن
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-quick-bar">
+        <div class="contact-quick-container">
+            <div class="quick-box">
+                <i class="fa-solid fa-phone" style="font-size:1.8rem; color:var(--gold-light);"></i>
+                <div>
+                    <strong style="display:block; font-size:0.8rem; color:var(--gold-light);">للحجز والاستفسار المباشر</strong>
+                    <a href="tel:+966541868305" dir="ltr">+966 54 186 8305</a>
+                </div>
+            </div>
+
+            <div class="quick-box">
+                <i class="fa-brands fa-whatsapp" style="font-size:2rem; color:#25D366;"></i>
+                <div>
+                    <strong style="display:block; font-size:0.8rem; color:var(--gold-light);">دردشة فورية عبر واتساب</strong>
+                    <a href="https://wa.me/966541868305" target="_blank" dir="ltr">+966 54 186 8305</a>
+                </div>
+            </div>
+
+            <div class="quick-box">
+                <i class="fa-solid fa-envelope" style="font-size:1.8rem; color:var(--gold-light);"></i>
+                <div>
+                    <strong style="display:block; font-size:0.8rem; color:var(--gold-light);">البريد الإلكتروني</strong>
+                    <a href="mailto:safabloombeauty@gmail.com">safabloombeauty@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Safa Bloom Beauty Studio (صفا بلوم ستوديو للجمال). جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <div class="floating-actions">
+        <a href="tel:+966541868305" class="float-btn float-call"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://wa.me/966541868305" target="_blank" class="float-btn float-whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-box">
+            <i class="fa-solid fa-circle-check" style="font-size:3rem; color:#25D366; margin-bottom:15px;"></i>
+            <h3 id="modalTitle" style="color:var(--deep-rose); margin-bottom:10px;">تم تسجيل حجزكِ بنجاح!</h3>
+            <p id="modalMsg" style="color:var(--text-muted); margin-bottom:20px;">تم استلام طلبكِ، اضغطي بالأسفل لإرسال التفاصيل مباشرة عبر الواتساب.</p>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                <a id="modalWaBtn" href="#" target="_blank" class="btn-primary" style="background:#25D366; justify-content:center;">
+                    <i class="fa-brands fa-whatsapp"></i> <span id="modalWaBtnText">إرسال تفاصيل الحجز عبر واتساب فوراً</span>
+                </a>
+                <button onclick="closeModal()" class="btn-outline-gold" style="justify-content:center;">
+                    <span id="modalCloseBtnText">إغلاق النافذة</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'ar';
+
+        const i18n = {
+            ar: {
+                langBtn: "English",
+                navBrand: "صفا بلوم ستوديو",
+                navHome: "الرئيسية",
+                navServices: "الخدمات",
+                navBooking: "حجز موعد",
+                btnBookNav: "احجزي موعدك",
+                heroBadge: "ستوديو التجميل الأول والأرقى",
+                heroTitle1: "تألقي بجمال ملكي مع ",
+                heroDesc: "نقدم لكِ أرقى خدمات العناية بالشعر، البشرة، والأظافر مع لمسات مكياج ساحرة وباقات عرائس فاخرة بأيدي نخبة من أمهر خبيرات التجميل.",
+                heroBtnBook: "احجزي إطلالتك الآن",
+                heroBtnWa: "تواصل عبر واتساب",
+                srvTag: "خدماتنا المتميزة",
+                srvTitle: "عناية فاخرة تليق بأنوثتك",
+                bookTag: "حجز إلكتروني فوري",
+                bookTitle: "احجزي موعدكِ بكل سهولة",
+                panelTitle: "معلومات الاتصال",
+                hoursText: "خدمة مفتوحة 24 ساعة (طوال أيام الأسبوع 24/7)"
+            },
+            en: {
+                langBtn: "العربية",
+                navBrand: "Safa Bloom Studio",
+                navHome: "Home",
+                navServices: "Services",
+                navBooking: "Book Now",
+                btnBookNav: "Book Appointment",
+                heroBadge: "Premier Luxury Beauty Studio",
+                heroTitle1: "Radiate Royal Elegance at ",
+                heroDesc: "Experience luxury hair treatments, flawless makeup, rejuvenating facials, and exquisite royal bridal packages crafted by master beauty artists.",
+                heroBtnBook: "Book Your Glow Now",
+                heroBtnWa: "Chat on WhatsApp",
+                srvTag: "Our Signature Services",
+                srvTitle: "Luxury Tailored to Your Femininity",
+                bookTag: "Online Instant Booking",
+                bookTitle: "Schedule Your Appointment Effortlessly",
+                panelTitle: "Contact Information",
+                hoursText: "Open 24 Hours / 7 Days a Week (24/7 Service)"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.body.className = currentLang === 'en' ? 'ltr' : '';
+            document.documentElement.dir = currentLang === 'en' ? 'ltr' : 'rtl';
+            document.documentElement.lang = currentLang;
+
+            document.getElementById('langBtnText').textContent = i18n[currentLang].langBtn;
+            document.getElementById('navBrandName').textContent = i18n[currentLang].navBrand;
+            document.getElementById('heroBrandHighlight').textContent = currentLang === 'en' ? 'Safa Bloom' : 'صفا بلوم';
+            document.getElementById('hoursText').textContent = i18n[currentLang].hoursText;
+
+            const translatables = document.querySelectorAll('.lang-text');
+            translatables.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (i18n[currentLang][key]) {
+                    el.textContent = i18n[currentLang][key];
+                }
+            });
+        }
+
+        function selectService(name) {
+            const select = document.getElementById('serviceSelect');
+            for(let i=0; i<select.options.length; i++) {
+                if(select.options[i].value.includes(name.split(' ')[0])) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const service = document.getElementById('serviceSelect').value;
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const date = document.getElementById('custDate').value;
+            const time = document.getElementById('custTime').value;
+            const payment = document.getElementById('custPay').value;
+
+            let waText = "";
+
+            if (currentLang === 'en') {
+                waText = encodeURIComponent(
+                    `🌸 *New Appointment Booking - Safa Bloom Beauty Studio*\n\n` +
+                    `👤 *Client Name:* ${name}\n` +
+                    `📱 *Phone:* ${phone}\n` +
+                    `💇‍♀️ *Service:* ${service}\n` +
+                    `📅 *Date:* ${date}\n` +
+                    `⏰ *Time:* ${time}\n` +
+                    `💳 *Payment Method:* ${payment}\n\n` +
+                    `Please confirm my booking. Thank you! ✨`
+                );
+                document.getElementById('modalTitle').textContent = "Appointment Reserved Successfully!";
+                document.getElementById('modalMsg').textContent = `Thank you, ${name}. Your booking request for ${service} on ${date} at ${time} has been received. Please send it directly to WhatsApp.`;
+                document.getElementById('modalWaBtnText').textContent = "Send Booking Details via WhatsApp";
+                document.getElementById('modalCloseBtnText').textContent = "Close";
+            } else {
+                waText = encodeURIComponent(
+                    `🌸 *طلب حجز موعد جديد - صفا بلوم ستوديو للجمال*\n\n` +
+                    `👤 *اسم العميلة:* ${name}\n` +
+                    `📱 *رقم الجوال:* ${phone}\n` +
+                    `💇‍♀️ *الخدمة المطلوبة:* ${service}\n` +
+                    `📅 *تاريخ الموعد:* ${date}\n` +
+                    `⏰ *الوقت المفضل:* ${time}\n` +
+                    `💳 *طريقة الدفع:* ${payment}\n\n` +
+                    `يرجى تأكيد حجز الموعد، شكراً لكم! ✨`
+                );
+                document.getElementById('modalTitle').textContent = "تم تسجيل حجزكِ بنجاح!";
+                document.getElementById('modalMsg').textContent = `شكراً لكِ يا ${name}. تم تسجيل طلب حجز (${service}) بتاريخ ${date} الساعة ${time}. اضغطي بالأسفل لإرسال التفاصيل مباشرة للواتساب.`;
+                document.getElementById('modalWaBtnText').textContent = "إرسال تفاصيل الحجز عبر واتساب فوراً";
+                document.getElementById('modalCloseBtnText').textContent = "إغلاق النافذة";
+            }
+
+            document.getElementById('modalWaBtn').href = `https://wa.me/966541868305?text=${waText}`;
+            document.getElementById('confirmModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('confirmModal').classList.remove('active');
+        }
+
+        document.getElementById('custDate').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
